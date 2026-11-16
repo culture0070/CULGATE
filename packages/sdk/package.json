@@ -1,0 +1,36 @@
+{
+  "name": "@culgate/sdk",
+  "version": "0.0.0",
+  "description": "CulGate payment SDK: one interface, multiple payment gateways.",
+  "license": "MIT",
+  "author": "culture007 (cultureHike)",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@culgate/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@culgate/provider-paymongo": "workspace:^",
+    "@culgate/provider-xendit": "workspace:^"
+  }
+}
