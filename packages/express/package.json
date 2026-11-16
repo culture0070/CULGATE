@@ -1,0 +1,40 @@
+{
+  "name": "@culgate/express",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Express webhook handler for CulGate (pre-release).",
+  "license": "MIT",
+  "author": "culture007 (cultureHike)",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "peerDependencies": {
+    "@culgate/sdk": "workspace:^",
+    "express": "^4.17.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "@culgate/core": "workspace:^",
+    "@culgate/sdk": "workspace:^",
+    "@types/express": "^5.0.6",
+    "express": "^5.0.0"
+  }
+}
