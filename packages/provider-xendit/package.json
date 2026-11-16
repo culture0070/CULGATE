@@ -1,0 +1,34 @@
+{
+  "name": "@culgate/provider-xendit",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Xendit provider adapter for CulGate (pre-release, not yet verified in test mode).",
+  "license": "MIT",
+  "author": "culture007 (cultureHike)",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@culgate/core": "workspace:^",
+    "zod": "^4.6.7"
+  }
+}
