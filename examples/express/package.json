@@ -1,0 +1,16 @@
+{
+  "name": "example-express",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "demo": "node demo.mjs",
+    "test": "node demo.mjs"
+  },
+  "dependencies": {
+    "@culgate/core": "workspace:^",
+    "@culgate/express": "workspace:^",
+    "@culgate/sdk": "workspace:^",
+    "express": "^5.0.0"
+  }
+}

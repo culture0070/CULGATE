@@ -1,0 +1,14 @@
+{
+  "name": "example-node",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "demo": "node index.mjs",
+    "test": "node index.mjs"
+  },
+  "dependencies": {
+    "@culgate/core": "workspace:^",
+    "@culgate/sdk": "workspace:^"
+  }
+}
