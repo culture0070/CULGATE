@@ -1,3 +1,9 @@
 packages:
   - 'packages/*'
   - 'examples/*'
+
+# Development-only: ESLint's dependencies still request minimatch 10, which has
+# a moderate advisory (GHSA-g3hv-75wg-m249) fixed in 11.0.1. Remove once
+# typescript-eslint depends on minimatch 11 itself.
+overrides:
+  minimatch: ^11.0.1
