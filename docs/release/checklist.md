@@ -31,7 +31,7 @@ but dependent on something outside this repository.
 | Plain Node.js example works                                           | `examples/node`, run in CI                                                                                                                                       |
 | Clean consumer installation from packed packages works                | `pnpm test:consumer`                                                                                                                                             |
 | PayMongo payments, refunds, and checkout verified against its sandbox | Sandbox suite (9 tests) plus a manual paid-payment and refund run, 2026-11-16; results in the [PayMongo guide](../providers/paymongo.md#verified-in-the-sandbox) |
-| Dependency review                                                     | `pnpm audit --prod` clean; one moderate advisory in a development-only dependency                                                                                |
+| Dependency review                                                     | `pnpm audit` clean for runtime and development dependencies                                                                                                      |
 | Security review                                                       | [Self-review](security-review.md); no critical or high findings open                                                                                             |
 | Documentation matches the implementation                              | Guides written against the code; examples and README flows executed                                                                                              |
 
