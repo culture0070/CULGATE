@@ -316,7 +316,8 @@ describe('against a real HTTP server', () => {
       seen.push({ url: request.url, authorization: request.headers.authorization });
       if (request.url === '/slow') return; // never responds
       if (request.url === '/redirect') {
-        response.writeHead(302, { location: 'http://127.0.0.1:1/elsewhere' }).end();
+        // Redirects back to this same server, so a followed redirect would be seen.
+        response.writeHead(302, { location: '/elsewhere' }).end();
         return;
       }
       response.writeHead(200, { 'content-type': 'application/json' }).end('{"ok":true}');
@@ -364,10 +365,13 @@ describe('against a real HTTP server', () => {
   });
 
   it('refuses to follow redirects, so credentials are never forwarded', async () => {
-    const before = seen.length;
     await expect(client().request({ method: 'GET', path: '/redirect' })).rejects.toThrow(
       NetworkError,
     );
-    expect(seen.slice(before).map((request) => request.url)).toEqual(['/redirect']);
+    // Checked by URL, not by position: a request from an earlier test can
+    // still reach the server while this one runs.
+    const urls = seen.map((request) => request.url);
+    expect(urls.filter((url) => url === '/redirect')).toHaveLength(1);
+    expect(urls).not.toContain('/elsewhere');
   });
 });
