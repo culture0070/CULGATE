@@ -2,7 +2,7 @@
   "name": "culgate",
   "private": true,
   "type": "module",
-  "description": "One interface. Multiple payment gateways.",
+  "description": "CulGate (Culture-Gate): a payment factory for Node.js. One interface, multiple payment gateways.",
   "license": "MIT",
   "author": "culture007 (cultureHike)",
   "packageManager": "pnpm@12.18.0",

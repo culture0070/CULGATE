@@ -2,9 +2,11 @@
 
 > One interface. Multiple payment gateways.
 
-CulGate is a payment SDK for Node.js. Your application uses one typed API for payments, refunds,
-hosted checkout, and webhooks, and names the merchant account to use on every call. CulGate
-translates the call for that account's provider and keeps the provider's real capabilities and
+CulGate (short for **Culture-Gate**) is a payment factory for Node.js: one place in your code
+that produces the right payment gateway client for each merchant account, behind a single typed
+API. Your application calls the same functions for payments, refunds, hosted checkout, and
+webhooks, and names the account to use on every call. CulGate translates the call for that
+account's provider, currently PayMongo or Xendit, and keeps the provider's real capabilities and
 statuses visible instead of hiding them.
 
 It is a library, not a service: it runs in your process with your credentials and stores nothing.
